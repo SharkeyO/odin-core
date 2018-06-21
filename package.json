@@ -1,0 +1,23 @@
+{
+  "name": "odin-core",
+  "version": "0.1.0",
+  "description": "odin :: api framework :: core",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "odin": "nodemon --watch 'src/**/*' -e ts,tsx --exec 'ts-node ./src/odin.ts'"
+  },
+  "author": "André Kirchner <andre.kirchner@cureon.de>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.11.1",
+    "nodemon": "^1.17.4",
+    "ts-node": "^6.0.3",
+    "typescript": "^2.8.3"
+  }
+}
