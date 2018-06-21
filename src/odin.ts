@@ -1,27 +1,64 @@
-// Module Imports
+// General
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
+import * as mongoose from 'mongoose';
 
-// Instantiate
-const app = express();
-
-// Config
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// Nodes
+import { IUser, userSchema } from './nodes/user';
 
 /**
- * RUN APPLICATION
- * Function will run the server
+ * @class OdinServer
  */
-function run() {
-    console.log('--- ODIN ---');
-    console.log('[SERVER] Application started ...');
+export class OdinServer {
+  /**
+   * Members
+   */
+  public app: express.Application;
 
-    // Open Server
-    app.listen(3000, () => {
-        console.log('[SERVER] Application running on port 3000');
+  /**
+   * Constructor
+   */
+  constructor() {
+    // Initialize Express APP
+    this.app = express();
+
+    // Configuration
+    this.config();
+    this.api();
+  }
+
+  /**
+   * Configure application
+   */
+  public config() {
+    // Setup BodyParser
+    this.app.use(bodyParser.urlencoded({ extended: true }));
+    this.app.use(bodyParser.json());
+
+    // 404 Catch
+    this.app.use(function(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
+        err.status = 404;
+        next(err);
     });
+  }
+
+  /**
+   * Start Server
+   */
+  start() {
+    this.app.listen(3000, () => {
+      console.log('[SERVER] Application running on port 3000');
+    });
+  }
+
+  /**
+   * Create REST API routes
+   */
+  public api() {
+    //empty for now
+  }
 }
 
-// Run Server
-run();
+// StartUp
+const odinServer: OdinServer = new OdinServer();
+odinServer.start();
