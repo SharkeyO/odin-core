@@ -1,0 +1,6 @@
+{
+  "PLUGIN_ORDER" : [
+    "authorization",
+    "mongo-api"
+  ]
+}

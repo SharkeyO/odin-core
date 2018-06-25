@@ -1,0 +1,13 @@
+{
+  "ROUTES" : {
+    "/user"     : {
+      "GET"     : "getUser",
+      "POST"    : "setUser"
+    },
+    "/user/:id" : {
+      "GET"     : "getUser",
+      "PUT"     : "setUser",
+      "DELETE"  : "deleteUser"
+    }
+  }
+}
