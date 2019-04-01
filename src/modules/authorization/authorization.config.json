@@ -1,7 +1,0 @@
-{
-  "ROUTES"      : {
-    "/auth"     : {
-      "POST"    : "authenticateUser"
-    }
-  }
-}
